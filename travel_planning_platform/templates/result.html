@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Cost Estimation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <center>
+    <div class="result-container">
+        <h2>Travel Cost Estimation</h2>
+        <p><strong>Origin:</strong> {{ origin }}</p>
+        <p><strong>Destination:</strong> {{ destination }}</p>
+        <p><strong>Transport Cost:</strong> ₹{{ transport_cost }}</p>
+        <p><strong>Accommodation Cost:</strong> ₹{{ accommodation_cost }}</p>
+        <p><strong>Meal Cost:</strong> ₹{{ meal_cost }}</p>
+        <h3><strong>Total Cost:</strong> ₹{{ total_cost }}</h3>
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %}
+    </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Travel Planning Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Smart Travel Planning Platform</h1>
+        <p>Estimate your travel costs easily with machine learning!</p>
+    </header>
+    
+    <main>
+        <form action="/estimate" method="POST">
+            <!-- Destination Section -->
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+
+            <!-- Origin Section -->
+            <div class="form-group">
+                <label for="origin">Origin:</label>
+                <input type="text" id="origin" name="origin" required>
+            </div>
+
+            <!-- Date Section -->
+            <div class="form-group">
+                <label for="date">Travel Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Duration Section -->
+            <div class="form-group">
+                <label for="duration">Duration (Days):</label>
+                <input type="number" id="duration" name="duration" required>
+            </div>
+
+            <!-- People Section -->
+            <div class="form-group">
+                <label for="people">Number of People:</label>
+                <input type="number" id="people" name="people" required>
+            </div>
+
+            <!-- Budget Type Section -->
+            <div class="form-group">
+                <label for="budget_type">Budget Type:</label>
+                <select id="budget_type" name="budget_type" required>
+                    <option value="luxury">Luxury</option>
+                    <option value="budget">Budget</option>
+                </select>
+            </div>
+
+            <!-- Travel Mode Section -->
+            <div class="form-group">
+                <label for="travel_mode">Travel Mode:</label>
+                <select id="travel_mode" name="travel_mode" required>
+                    <option value="bus">Bus</option>
+                    <option value="car_own">Car (Own)</option>
+                    <option value="car_travel">Car (Travels)</option>
+                    <option value="flight">Flight</option>
+                    <option value="train">Train</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Estimate Cost</button>
+        </form>
+
+        {% if cost %}
+        <div class="result">
+            <h2>Estimated Travel Cost: ₹{{ cost }}</h2>
+        </div>
+        {% endif %}
+    </main>
+</body>
+</html>
